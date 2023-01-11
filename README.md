@@ -1,7 +1,7 @@
 # Auto-AGRO-CETEP
 Automação do catálogo online AGRO-CETEP
 - Domínio online: http://agrocetep.epizy.com/
-- Coordenação do projeto: Prof. Thiala Paz
+- Coordenação do projeto: Prof. Bióloga Thiala Paz
 ## Desenvolvedores
 - Thiago Sousa (@ThiagoSousa81) - Full-Stack
 - Giovana Vaninne - Back-End
