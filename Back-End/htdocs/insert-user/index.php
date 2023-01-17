@@ -56,6 +56,17 @@
                           </div>                        
                         <button type="submit" class="btn btn-dark" style="width: 100%;">Cadastrar</button>
                     </form>
+                    <?php
+                    $servidor = 'sql205.epizy.com';
+                    $username = 'epiz_33347322';
+                    $password = '0C5drBLQ48P';
+                    $database = 'epiz_33009677_DATABASE';
+                    $conexao = mysql_connect($servidor, $username, $password)
+                          or die("Erro ao conectar ao banco de dados");
+                    $db = mysql_select_db($database)
+                          or die("Erro ao selecionar banco de dados");
+                    
+                    ?>
                   </div>
             </div>            
         </div>
