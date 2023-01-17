@@ -36,15 +36,15 @@
                     <form action="index.php" method="post">
                         <div class="mt-3">
                             <label for="nome">Nome:</label>
-                            <input type="nome" class="form-control" id="nome" placeholder="Nome" name="nome">
+                            <input type="text" class="form-control" id="nome" placeholder="Nome" name="nome">
                         </div>
                         <div class="mt-3">
                             <label for="nome">Lattes ID:</label>
-                            <input type="lattes" class="form-control" id="lattes" placeholder="Link do Lattes" name="lattes">
+                            <input type="text" class="form-control" id="lattes" placeholder="Link do Lattes" name="lattes">
                         </div>
                         <div class="mb-3 mt-3">
                           <label for="email">Email:</label>
-                          <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+                          <input type="text" class="form-control" id="email" placeholder="Email" name="email">
                         </div>
                         <div class="mb-3">
                           <label for="pwd">Senha:</label>
@@ -52,11 +52,14 @@
                         </div>
                         <div class="mb-3">
                             <label for="pwd">Confirmar Senha:</label>
-                            <input type="cpassword" class="form-control" id="cpwd" placeholder="Confirme a senha" name="cpswd">
+                            <input type="password" class="form-control" id="cpwd" placeholder="Confirme a senha" name="cpswd">
                           </div>                        
                         <button type="submit" class="btn btn-dark" style="width: 100%;">Cadastrar</button>
                     </form>
                     <?php
+
+                    if(isset($_POST['nome']) || isset($_POST['lattes']) || isset($_POST['email']) || isset($_POST['pswd']) || isset($_POST['cpswd'])) {
+
                     $servidor = 'sql205.epizy.com';
                     $username = 'epiz_33347322';
                     $password = '0C5drBLQ48P';
@@ -66,6 +69,8 @@
                     $db = mysql_select_db($database)
                           or die("Erro ao selecionar banco de dados");
                     
+
+                    }
                     ?>
                   </div>
             </div>            
