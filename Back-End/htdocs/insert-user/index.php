@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>AGROCETEP - Cadastro</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="icon" href="/Front-End/htdocs/images/Logo AgroCETEP.png">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        
+      </head>
+      <body style="background-image: url('/Front-End/htdocs/images/fundo-de-folhas-verdes.jpg');">
+        <header class="container-fluid  bg-secondary text-white">
+            <div class="row">
+                <div class="col-sm-3 text-center">
+    <a href="https://agrocetep.wordpress.com/" target="_blank">
+                    <img src="/Front-End/htdocs/images/Logo AgroCETEP.png" class="rounded" alt="" style="width: 50%; margin-block: 20%;"></a>
+                </div>
+                <div class="col-md-9 text-center">
+                    <div style="margin-block: 10%;">
+                        <h1>AGROCETEP</h1>
+                        <h5>Catálogo online</h5> 
+                    </div>                    
+                </div> 
+            </div>                             
+        </header>
+        
+        <div class="row" style="
+        margin-block-end: 50px;
+        max-width: 100%;
+        padding-inline: 10%;
+        ">
+            
+            <div class="col-sm-12">
+                <div class="text-white">
+                    <form action="index.php" method="post">
+                        <div class="mt-3">
+                            <label for="nome">Nome:</label>
+                            <input type="nome" class="form-control" id="nome" placeholder="Nome" name="nome">
+                        </div>
+                        <div class="mt-3">
+                            <label for="nome">Lattes ID:</label>
+                            <input type="lattes" class="form-control" id="lattes" placeholder="Link do Lattes" name="lattes">
+                        </div>
+                        <div class="mb-3 mt-3">
+                          <label for="email">Email:</label>
+                          <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+                        </div>
+                        <div class="mb-3">
+                          <label for="pwd">Senha:</label>
+                          <input type="password" class="form-control" id="pwd" placeholder="Senha" name="pswd">
+                        </div>
+                        <div class="mb-3">
+                            <label for="pwd">Confirmar Senha:</label>
+                            <input type="cpassword" class="form-control" id="cpwd" placeholder="Confirme a senha" name="cpswd">
+                          </div>                        
+                        <button type="submit" class="btn btn-dark" style="width: 100%;">Cadastrar</button>
+                    </form>
+                  </div>
+            </div>            
+        </div>
+        
+        
+        <footer class="container-fluid p-5 bg-secondary text-white">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h3>Desenvolvido pelo CETEP para o mundo!</h3>
+                    <p>Sistema de login protegido por <a href="http://ebs-systems.epizy.com/" style="color: white">EBS-Systems</a></p>
+                </div>                
+            </div>
+        </footer>
+        </body>
+        </html>
+        
