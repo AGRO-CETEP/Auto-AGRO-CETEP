@@ -5,16 +5,16 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="icon" href="/Front-End/htdocs/images/Logo AgroCETEP.png">
+<link rel="icon" href="/images/Logo AgroCETEP.png">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         
       </head>
-      <body style="background-image: url('/Front-End/htdocs/images/fundo-de-folhas-verdes.jpg');">
+      <body style="background-image: url('/images/fundo-de-folhas-verdes.jpg');">
         <header class="container-fluid  bg-secondary text-white">
             <div class="row">
                 <div class="col-sm-3 text-center">
     <a href="https://agrocetep.wordpress.com/" target="_blank">
-                    <img src="/Front-End/htdocs/images/Logo AgroCETEP.png" class="rounded" alt="" style="width: 50%; margin-block: 20%;"></a>
+                    <img src="/images/Logo AgroCETEP.png" class="rounded" alt="" style="width: 50%; margin-block: 20%;"></a>
                 </div>
                 <div class="col-md-9 text-center">
                     <div style="margin-block: 10%;">
