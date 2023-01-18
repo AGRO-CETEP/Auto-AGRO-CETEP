@@ -60,14 +60,60 @@
 
                     if(isset($_POST['nome']) || isset($_POST['lattes']) || isset($_POST['email']) || isset($_POST['pswd']) || isset($_POST['cpswd'])) {
 
-                    $servidor = 'sql205.epizy.com';
-                    $username = 'epiz_33347322';
-                    $password = '0C5drBLQ48P';
-                    $database = 'epiz_33009677_DATABASE';
-                    $conexao = mysql_connect($servidor, $username, $password)
-                          or die("Erro ao conectar ao banco de dados");
-                    $db = mysql_select_db($database)
-                          or die("Erro ao selecionar banco de dados");
+                        $nome = addslashes($_POST['nome']);                                    
+                        $lattes = addslashes($_POST['lattes']);
+                        $email = addslashes($_POST['email']);
+                        $password = addslashes($_POST['pswd']);
+                        $cpassword = addslashes($_POST['cpswd']);
+
+                        if (!empty($nome) && !empty($email) && !empty($password) && !empty($cpassword)) {
+                            if ($password == $cpassword) {
+                                if(filter_var($email, FILTER_VALIDATE_EMAIL))
+                                {//a partir daqui cadastramos no banco de dados
+                                    for ($i=0; $i < 255; $i++) { 
+                                        $password = sha1($password);
+                                    }                                                
+                                    $timezone = new DateTimeZone('America/Sao_Paulo');                                         
+                                    $now = new DateTime('now', $timezone);
+                                    $data = $now->format('Y/m/d');
+                                    $hora = $now->format('H:i');
+
+                                    $usuario = 'epiz_33347322';
+                                    $senha = '0C5drBLQ48P';
+                                    $database = 'epiz_33009677_DATABASE';
+                                    $host = 'sql205.epizy.com';
+
+                                    $mysqli = new mysqli($host, $usuario, $senha, $database);
+
+                                    if($mysqli->error) {
+                                        die("Falha ao conectar ao banco de dados: " . $mysqli->error);
+                                    }
+
+                                    $sql_code = "INSERT INTO `USERS`(`ID_USER`, `NOME_USER`, `EMAIL_USER`, `HASH_USER`, `LATTES_USER`, `DATA_USER`) VALUES ('', '$nome', '$email', '$password', '$lattes', '$data')";
+                                    $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: ".$mysqli->error);
+
+                                    echo('<div class="alert alert-success" style="margin-top: 5px"><strong>Usuário cadastrado com sucesso!</strong></div>');
+                                }
+                                else{
+                                    echo('<div class="alert alert-danger" style="margin-top: 5px"><strong>Endereço de e-mail inválido!</strong></div>');
+                                }
+                            }
+                            else {
+                                echo('<div class="alert alert-danger" style="margin-top: 5px"><strong>As senhas não conferem!/strong></div>');
+                            }
+                        }
+                        else {
+                            echo('<div class="alert alert-danger" style="margin-top: 5px"><strong>Preencha todos os campos!</strong></div>');
+                        }
+                        /*
+                        $servidor = 'sql205.epizy.com';
+                        $username = 'epiz_33347322';
+                        $password = '0C5drBLQ48P';
+                        $database = 'epiz_33009677_DATABASE';
+                        $conexao = mysql_connect($servidor, $username, $password)
+                            or die("Erro ao conectar ao banco de dados");
+                        $db = mysql_select_db($database)
+                            or die("Erro ao selecionar banco de dados");*/
                     
 
                     }
