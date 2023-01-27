@@ -1,11 +1,11 @@
 # Auto-AGRO-CETEP
 ### Projeto de automação do catálogo online AGRO-CETEP
-> Domínio online: http://agrocetep.epizy.com/ <br>
+> Domínio online: [https://agrocetep.epizy.com/](https://agrocetep.epizy.com/) <br>
 > Coordenação do projeto: Prof. Bióloga Thiala Paz
 ## Desenvolvedores
 - Thiago Sousa ([@ThiagoSousa81](https://github.com/thiagosousa81)) - Full-Stack + Cloud-Dev
 - Giovana Vaninne - Back-End
-- Luis Gustavo - Back-End
+- Luis Gustavo - Back-End + Analista de dados
 - Lenilson Silva - Front-End
 - Fernando Santos - Front-End
 - Vinicius Cerqueira - Desing gráfico + Front-End
