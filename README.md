@@ -5,7 +5,7 @@
 ## Desenvolvedores
 - Thiago Sousa ([@ThiagoSousa81](https://github.com/thiagosousa81)) - Full-Stack + Cloud-Dev
 - Giovana Vaninne - Back-End
-- Luis Gustavo - Back-End + Analista de dados
+- Luis Gustavo ([LuisGustav03](https://github.com/LuisGustav03)) - Back-End + Analista de dados
 - Lenilson Silva - Front-End
 - Fernando Santos ([@aglomera](https://github.com/aglomera)) - Front-End
 - Vinicius Cerqueira - Desing gráfico + Front-End
