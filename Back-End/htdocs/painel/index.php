@@ -33,26 +33,26 @@ $date = strtotime($input);
     <link rel="icon" href="/images/Logo AgroCETEP.png">
   </head>
   <body style="margin: 0px;padding: 0px;background-image: radial-gradient(white, #fcb900);">
-     
+
     <section class="jumbotron container" style="border-radius: 10px; padding-block: 15px; margin-top: 10px;">
       <header class="container-fluid  bg-secondary text-white" style="
-    background-color: black;
-    color: white;
-    border-radius: 15px;
-">
-      <div class="row">
-        <div class="col-sm-3 text-center">
-          <a href="https://agrocetep.wordpress.com/">
-            <img src="/images/Logo AgroCETEP.png" class="img-rounded" alt="" style="width: 50%; margin-block: 20%;"></a>
-        </div>
-        <div class="col-md-9 text-center">
-          <div style="margin-block: 10%;">
-            <h2>AGROCETEP</h2>
-            <h4>Catálogo online</h4>                      
-          </div>                    
-        </div> 
-      </div>                             
-    </header>
+                                                                      background-color: black;
+                                                                      color: white;
+                                                                      border-radius: 15px;
+                                                                      ">
+        <div class="row">
+          <div class="col-sm-3 text-center">
+            <a href="https://agrocetep.wordpress.com/">
+              <img src="/images/Logo AgroCETEP.png" class="img-rounded" alt="" style="width: 50%; margin-block: 20%;"></a>
+          </div>
+          <div class="col-md-9 text-center">
+            <div style="margin-block: 10%;">
+              <h2>AGROCETEP</h2>
+              <h4>Catálogo online</h4>                      
+            </div>                    
+          </div> 
+        </div>                             
+      </header>
       <ul class="nav nav-tabs">
         <li><a href="/">Catálogos <span class="glyphicon glyphicon-book"></span></a></li>
         <li class="active"><a data-toggle="tab" href="#home">Perfil <span class="glyphicon glyphicon-user"></span></a></li>        
@@ -135,10 +135,10 @@ $date = strtotime($input);
                   <ul class="list-group">
                     <li class="list-group-item" style="overflow: auto; max-height: 200px;">                               
                       <p style="
-    text-align: justify;
-">Olá, Pesquisador(a),<br><br>
+                                text-align: justify;
+                                ">Olá, Pesquisador(a),<br><br>
                         É um prazer para nós ter a você como um colaborador de conteúdo em nosso sistema de informação!<br>
-Atualmente nosso sistema de informação está em desenvolvimento. Estamos trabalhando para concluí-lo o mais breve possível.<br>
+                        Atualmente nosso sistema de informação está em desenvolvimento. Estamos trabalhando para concluí-lo o mais breve possível.<br>
                         <br> Caso tenha dificuldade com algo na nossa plataforma entre em contato...</p>
                     </li>                                                      
                   </ul>                        
@@ -146,7 +146,7 @@ Atualmente nosso sistema de informação está em desenvolvimento. Estamos traba
               </div>               
             </div>  
           </div></div>
-        
+
 
         <div id="info" class="tab-pane fade">
           <h2>Sobre a equipe de pesquisadores AGROCETEP</h2>
@@ -156,25 +156,33 @@ Atualmente nosso sistema de informação está em desenvolvimento. Estamos traba
 
 
             <div class="col-sm-5">
-              <img class="img-responsive" src="https://agrocetep.files.wordpress.com/2022/08/whatsapp-image-2022-08-15-at-08.00.43.jpeg" alt="" style=" max-width: 300px; margin-inline: auto; ">  
+              <img class="img-responsive" src="https://agrocetep.files.wordpress.com/2022/08/whatsapp-image-2022-08-15-at-08.00.43.jpeg" alt="" style="
+                                                                                                                                                      max-width: 300px;
+                                                                                                                                                      margin-inline: auto;
+                                                                                                                                                      ">  
             </div>
-            <div class="col-sm-7">
-              <img class="img-responsive" src="https://agrocetep.files.wordpress.com/2022/07/cruz-news.jpg" alt="" style=" max-width: 100%; margin-inline: auto; margin-block: auto; ">  
+            <div class="col-sm-7" style="
+                                         ">
+              <img class="img-responsive" src="https://agrocetep.files.wordpress.com/2022/07/cruz-news.jpg" alt="" style="
+                                                                                                                          max-width: 100%;
+                                                                                                                          margin-inline: auto;
+                                                                                                                          margin-block: auto;
+                                                                                                                          ">  
             </div>
           </div>
 
-            <p style="text-align: justify; margin-top: 10px">
+          <p style="text-align: justify; margin-top: 10px">
             Atualmente estamos iniciando a automação do catálogo para que qualquer pesquisador posa inserir e alterar informações, contribuíndo para uma melhor identificação das espécies.
           </p>
         </div>
       </div>
     </section>
 
-    
+
     <footer class="container-fluid p-5 bg-secondary text-white" style="
-    background-color: black;
-    color: white;
-">
+                                                                       background-color: black;
+                                                                       color: white;
+                                                                       ">
       <div class="row">
         <div class="col-md-12 text-center">
           <h3>Desenvolvido pelo CETEP para o mundo!</h3>
