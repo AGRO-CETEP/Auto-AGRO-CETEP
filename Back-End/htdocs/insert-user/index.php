@@ -75,6 +75,10 @@
                   //$sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: ".$mysqli->error);
 
                   echo('<div class="alert alert-success" style="margin-top: 5px"><strong>Usuário cadastrado com sucesso!</strong></div>');
+                  
+                  sleep(3);
+                  header('Location: /log-in');                 
+                  
                 }
                 else{
                   echo('<div class="alert alert-danger" style="margin-top: 5px"><strong>Endereço de e-mail inválido!</strong></div>');
