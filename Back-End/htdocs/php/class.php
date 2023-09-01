@@ -16,6 +16,17 @@
             
         }
 
+        public function GetLinkMySQLI()
+        {
+          $usuario = 'epiz_33347322';
+          $senha = '0C5drBLQ48P';
+          $database = 'epiz_33347322_DATABASE';
+          $host = 'sql205.epizy.com';
+          
+          $mysqli = new mysqli($host, $usuario, $senha, $database);
+          return $mysqli;
+        }
+
         public function login($user, $password)
         {
             global $pdo;  
