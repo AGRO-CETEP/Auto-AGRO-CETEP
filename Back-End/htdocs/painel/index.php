@@ -47,15 +47,16 @@ $date = strtotime($input);
           </div>
           <div class="col-md-9 text-center">
             <div style="margin-block: 10%;">
-              <h2>AGROCETEP</h2>
-              <h4>Catálogo online</h4>                      
+              <a href="https://agrocetep.wordpress.com/" style="color: white"><h2>AGROCETEP</h2>
+              <h4>Catálogo online</h4></a>                      
             </div>                    
           </div> 
         </div>                             
       </header>
       <ul class="nav nav-tabs">
-        <li><a href="/">Catálogos <span class="glyphicon glyphicon-book"></span></a></li>
-        <li class="active"><a data-toggle="tab" href="#home">Perfil <span class="glyphicon glyphicon-user"></span></a></li>        
+        <li><a href="/">Catálogos <span class="glyphicon glyphicon-leaf"></span></a></li>
+        <li class="active"><a data-toggle="tab" href="#home">Perfil <span class="glyphicon glyphicon-user"></span></a></li>
+        <li><a data-toggle="tab" href="#catalog">Catalogar <span class="glyphicon glyphicon-book"></span></a></li>
         <li><a data-toggle="tab" href="#info">Sobre <span class="glyphicon glyphicon-info-sign"></span></a></li>
         <li><a href="/painel/logout.php">Sair <span class="glyphicon glyphicon-log-out"></span></a></li>
       </ul>
@@ -68,9 +69,13 @@ $date = strtotime($input);
 
           <hr style="margin-block-start: 10px; border: 0; border-top: 3px solid black;">
           <div class="row" style="display: flex">
-            <div class="col-sm-2">                            
-              <img class="img-circle img-responsive" src="https://st.depositphotos.com/1842549/3903/i/600/depositphotos_39038955-stock-photo-user-profile-icon.jpg" alt="Foto do perfil" style="width: 90px">
-              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#ModalPhoto">Alterar foto <span class="glyphicon glyphicon-camera"></span></button>
+            <div class="col-sm-2" style="
+    padding-block: 20px;
+">                            
+              <img class="img-circle img-responsive" src="https://st.depositphotos.com/1842549/3903/i/600/depositphotos_39038955-stock-photo-user-profile-icon.jpg" alt="Foto do perfil" style="width: 100px;height: 100px; margin-inline: auto">
+              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#ModalPhoto" style="
+    width: 100%;
+">Alterar foto <span class="glyphicon glyphicon-camera"></span></button>
             </div>
             <div class="col-sm-10" style="
                                           overflow: auto;
@@ -113,10 +118,10 @@ $date = strtotime($input);
                 <div id="collapse1" class="collapse">
                   <ul class="list-group">                    
                     <li class="list-group-item">
-                      <button class="btn btn-warning well-bg" style="width: 100%;"><h5 style="margin-block: 0px;">Trocar a senha <span class="glyphicon glyphicon-lock"> </span></h5></button>
+                      <button class="btn btn-warning well-bg" style="width: 100%;" data-toggle="modal" data-target="#ModalPhoto"><h5 style="margin-block: 0px;">Trocar a senha <span class="glyphicon glyphicon-lock"> </span></h5></button>
                     </li>
-                    <li class="list-group-item">
-                      <button class="btn btn-danger well-bg" style="width: 100%;"><h5 style="margin-block: 0px;">Excluir conta <span class="glyphicon glyphicon-trash"> </span></h5></button>
+                    <li class="list-group-item"> 
+                      <button class="btn btn-danger well-bg" style="width: 100%;" data-toggle="modal" data-target="#ModalPhoto"><h5 style="margin-block: 0px;">Excluir conta <span class="glyphicon glyphicon-trash"> </span></h5></button>
                     </li>                          
                   </ul>                        
                 </div>
@@ -147,7 +152,102 @@ $date = strtotime($input);
             </div>  
           </div></div>
 
+        <div id="catalog" class="tab-pane fade">
+          <h2>
+            Catalogar uma espécie
+          </h2>
+          <hr style="border: 0; border-top: 3px solid black;">
+          <form method="POST" action="" class="row">           
+            <div class="col-sm-4">
+              <label class="form-label">Reino *</label>
+              <input type="text" class="form-control" id="reino" name="reino" required>
+            </div>
+            <div class="col-sm-4">
+              <label class="form-label">Filo</label>
+              <input type="email" class="form-control" id="filo" name="filo">
+            </div>
+            <div class="col-sm-4">
+              <label class="form-label">Classe</label>
+              <input type="text" class="form-control" id="classe" name="classe">
+            </div>
+            <div class="col-sm-4">
+              <label class="form-label">Ordem</label>
+              <input type="text" class="form-control" id="ordem" name="ordem">
+            </div>
+            <div class="col-sm-4">
+                <label class="form-label">Família</label>
+                <input type="text" class="form-control" id="familia" name="familia">
+              </div>
+            <div class="col-sm-4">
+                <label class="form-label">Gênero</label>
+                <input type="text" class="form-control" id="genero" name="genero">
+              </div>
+            <div class="col-sm-4">
+                <label class="form-label">Espécie * (sem o gênero)</label>
+                <input type="text" class="form-control" id="especie" name="especie" required>
+              </div>
+            
+            <div class="col-sm-4">
+                <label class="form-label">Link da imagem (opcional)</label>
+                <input type="text" class="form-control" id="img" name="img">
+              </div>
+            
+            <div class="col-sm-4">
+                <label class="form-label">Data da coleta</label>
+                <input type="date" class="form-control" id="data" name="data">
+              </div>
+            <div class="col-sm-12">
+              <label class="form-label">Descrição da espécie</label>
+              <textarea class="form-control" id="txtdescricao" rows="5" ></textarea>
+            </div>
 
+            <div class="col-sm-4">
+               <label class="form-label">Pesquisadores que participaram:</label>
+              <select class="form-select" id="pesquisador" name="pesquisador" multiple required style="width: 100%">
+                <option value="p1">Pesquisador 01</option>
+                <option value="p2">Pesquisador 02</option>
+                <option value="p3">Pesquisador 03</option>
+                <option value="p1">Pesquisador 01</option>
+                <option value="p2">Pesquisador 02</option>
+                <option value="p3">Pesquisador 03</option>    
+                <option value="p1">Pesquisador 01</option>
+                <option value="p2">Pesquisador 02</option>
+                <option value="p3">Pesquisador 03</option>    
+                <option value="p1">Pesquisador 01</option>
+                <option value="p2">Pesquisador 02</option>
+                <option value="p3">Pesquisador 03</option>    
+                <option value="p1">Pesquisador 01</option>
+                <option value="p2">Pesquisador 02</option>
+                <option value="p3">Pesquisador 03</option>    
+                <!-- Adicione mais opções conforme necessário -->
+              </select>
+            </div>
+            <div class="col-sm-4">                            
+              <label class="form-label">Pesquisadores selecionados:</label>
+                <textarea class="form-control" id="txtpesquisadores" rows="2" ></textarea>
+            </div>
+                         
+
+            <script>
+              // Evento que é acionado quando alguma opção do select é selecionada ou desselecionada
+              document.getElementById('pesquisador').addEventListener('change', function() {
+                // Obter todas as opções selecionadas
+                var selectedOptions = Array.from(this.selectedOptions).map(function(option) {
+                  return option.text;
+                });
+                // Atualizar o conteúdo do textarea com as seleções
+                document.getElementById('txtpesquisadores').value += selectedOptions.join('\n') + '\n';
+              });
+            </script>
+
+            <div class="text-center col-sm-4">              
+              <button type="submit" class="btn btn-success" style="width: 100%; margin-block: 20px"><b>CADASTRAR</b></button>
+            </div>
+            <div class="col-sm-4"></div>
+          </form>
+        </div>
+
+        
         <div id="info" class="tab-pane fade">
           <h2>Sobre a equipe de pesquisadores AGROCETEP</h2>
           <hr style="margin-block-start: 10px; border: 0; border-top: 3px solid black;">
