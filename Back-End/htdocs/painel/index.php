@@ -3,20 +3,9 @@ require '../php/class.php';
 $cls = new database;
 include('protect.php');
 
-/*if(!isset($_SESSION['ID_USER']{
-  session_start();
-}*/
-$servidor = 'sql205.epizy.com';
-$username = 'epiz_33347322';
-$password = '0C5drBLQ48P';
-$database = 'epiz_33347322_DATABASE';
-$conexao = mysql_connect($servidor, $username, $password) 
-  or die("Erro ao conectar ao banco de dados");
-$db = mysql_select_db($database)
-  or die("Erro ao selecionar banco de dados");
-$query = mysql_query("SELECT * FROM USERS WHERE ID_USER = ".$_SESSION['ID_USER']);
+$query = mysqli_query($cls->GetLinkMySQLI(), "SELECT * FROM USERS WHERE ID_USER = ".$_SESSION['ID_USER']);
 
-$User = mysql_fetch_array($query);
+$User = mysqli_fetch_array($query);
 
 $date = $User[5];
 $input = $date;
@@ -203,20 +192,21 @@ $date = strtotime($input);
             </div>
 
             <div class="col-sm-4">
-               <label class="form-label">Pesquisadores que participaram:</label>
+               <label class="form-label">Pesquisadores que participaram: </label>
               <select class="form-select" id="pesquisador" name="pesquisador" multiple required style="width: 100%">
               <?php
-              $AllUsers = mysqli_query($cls->GetLinkMySQLI, "SELECT * FROM 'USERS'");
-              while ($rows = mysqli_fetch_array($cls->GetLinkMySQLI, $AllUsers)) {
-                echo '<option value="'.$rows[0].'">'.$rows[1].'</option>'
+              $AllUsers = mysqli_query($cls->GetLinkMySQLI(), "SELECT * FROM USERS");
+              while ($rows = mysqli_fetch_array($AllUsers)) {
+                echo '<option value="'.$rows[0].'">'.$rows[1].'</option>';
+                
               }
               ?>
-                <option value="p1">Pesquisador 01</option>
-                <option value="p2">Pesquisador 02</option>
-                <option value="p3">Pesquisador 03</option>                  
+                                
                 <!-- Adicione mais opções conforme necessário -->
               </select>
             </div>
+            
+            
             <div class="col-sm-4">                            
               <label class="form-label">Pesquisadores selecionados:</label>
                 <textarea class="form-control" id="txtpesquisadores" rows="2" ></textarea>
