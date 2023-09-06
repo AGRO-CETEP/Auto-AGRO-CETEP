@@ -157,6 +157,9 @@ $date = strtotime($input);
             $familia = addslashes($_POST['familia']);
             $genero = addslashes($_POST['genero']);
             $especie = addslashes($_POST['especie']);
+            $link = addslashes($_POST['img']);
+
+            $sql_code = '';
           }
           else {
             echo '<h1><Preencha os campos obrigatórios!/h1>'
