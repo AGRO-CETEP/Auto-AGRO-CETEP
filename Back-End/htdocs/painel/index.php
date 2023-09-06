@@ -150,7 +150,13 @@ $date = strtotime($input);
 
           <?php
           if (isset($_POST['reino']) && isset($_POST['especie'])) {
-            # code...
+            $reino = addslashes($_POST['reino']);
+            $filo = addslashes($_POST['filo']);
+            $classe = addslashes($_POST['classe']);
+            $reino = addslashes($_POST['reino']);
+            $reino = addslashes($_POST['reino']);
+            $reino = addslashes($_POST['reino']);
+            $reino = addslashes($_POST['reino']);
           }
           else {
             echo '<h1><Preencha os campos obrigatórios!/h1>'
