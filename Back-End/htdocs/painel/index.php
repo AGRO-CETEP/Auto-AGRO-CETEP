@@ -147,6 +147,12 @@ $date = strtotime($input);
             Catalogar uma espécie
           </h2>
           <hr style="border: 0; border-top: 3px solid black;">
+          <?php
+          if (isset($_POST['reino']) && isset($_POST['filo']) && isset($_POST['classe'])) {
+            # code...
+          }
+          
+          ?>
           <form method="POST" action="" class="row">           
             <div class="col-sm-4">
               <label class="form-label">Reino *</label>
