@@ -186,11 +186,10 @@ $date = strtotime($input);
                 <label class="form-label">Data da coleta</label>
                 <input type="date" class="form-control" id="data" name="data">
               </div>
-            <div class="col-sm-12">
+            <div class="col-sm-4">
               <label class="form-label">Descrição da espécie</label>
               <textarea class="form-control" id="txtdescricao" rows="5" ></textarea>
             </div>
-
             <div class="col-sm-4">
                <label class="form-label">Pesquisadores que participaram: </label>
               <select class="form-select" id="pesquisador" name="pesquisador" multiple required style="width: 100%">
@@ -211,6 +210,51 @@ $date = strtotime($input);
               <label class="form-label">Pesquisadores selecionados:</label>
                 <textarea class="form-control" id="txtpesquisadores" rows="2" ></textarea>
             </div>
+            <div class="col-sm-4">
+                <label for="imagem">Foto da planta:</label>
+                <input type="file" name="imagem" id="imagemInput">
+            </div>
+            <div class="col-sm-4">
+              <a href ="#" target="_blank" id="imagemLink"><img id="imagemPreview" src="#" alt="Prévia da Imagem" style="display: none; max-width: 200px; max-height: 200px; margin-top: 10px;"></a>
+            </div>
+            
+            <script>
+        // Função para exibir a prévia da imagem selecionada
+        function exibirPreviewImagem(input) {
+            var imagemPreview = document.getElementById('imagemPreview');
+            var imagemLink = document.getElementById('imagemLink');
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    imagemPreview.style.display = 'block';
+                    imagemPreview.src = e.target.result;
+                    imagemLink.href = e.target.result;
+                };
+
+                reader.readAsDataURL(input.files[0]);
+                
+            } else {
+                imagemPreview.style.display = 'none';
+                imagemLink.style.display = 'none';
+                imagemPreview.src = '';
+                imagemLink.href = '#'; // Define o href como "#" para não redirecionar em caso de ausência de imagem
+            }
+        }
+
+        // Vincule a função ao evento onchange do input de imagem
+        document.getElementById('imagemInput').addEventListener('change', function () {
+            exibirPreviewImagem(this);
+        });
+        
+        document.getElementById('imagemLink').addEventListener('click', function(event) {
+        event.preventDefault(); // Evita que o link seja aberto na aba atual
+        var url = 'https://agrocetep.epizy.com/painel/img'; // Substitua com a URL desejada
+        window.open(url, '_blank');
+    });
+    </script>
+
+            
                          
 
             <script>
@@ -243,16 +287,11 @@ $date = strtotime($input);
             <div class="col-sm-5">
               <img class="img-responsive" src="https://agrocetep.files.wordpress.com/2022/08/whatsapp-image-2022-08-15-at-08.00.43.jpeg" alt="" style="
                                                                                                                                                       max-width: 300px;
-                                                                                                                                                      margin-inline: auto;
-                                                                                                                                                      ">  
+                                                                                                                                                      margin-inline: auto; ">  
             </div>
             <div class="col-sm-7" style="
                                          ">
-              <img class="img-responsive" src="https://agrocetep.files.wordpress.com/2022/07/cruz-news.jpg" alt="" style="
-                                                                                                                          max-width: 100%;
-                                                                                                                          margin-inline: auto;
-                                                                                                                          margin-block: auto;
-                                                                                                                          ">  
+              <img class="img-responsive" src="https://agrocetep.files.wordpress.com/2022/07/cruz-news.jpg" alt="" style="max-width: 100%; margin-inline: auto; margin-block: auto;">  
             </div>
           </div>
 
