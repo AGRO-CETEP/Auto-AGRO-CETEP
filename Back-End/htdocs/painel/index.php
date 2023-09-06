@@ -158,8 +158,17 @@ $date = strtotime($input);
             $genero = addslashes($_POST['genero']);
             $especie = addslashes($_POST['especie']);
             $link = addslashes($_POST['img']);
+            //$pesquisadores = addslashes($_POST['txtpesquisadores']);
 
-            $sql_code = '';
+            //$sql_code = 'INSERT INTO';
+
+
+            $comment = base64_encode($comment);
+            
+            $sql_code = "INSERT INTO `COMENTARIOS`(`ID_COMMENT`, `CONTENT_COMMENT`, `ID_USER`, `DATA_COMMENT`, `HORA_COMMENT`) VALUES ('', '$comment', '".$_SESSION['ID_USER']."', '$data', '$hora')";
+            $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: ".$mysqli->error);
+            
+
           }
           else {
             echo '<h1><Preencha os campos obrigatórios!/h1>'
@@ -226,7 +235,7 @@ $date = strtotime($input);
             
             <div class="col-sm-4">                            
               <label class="form-label">Pesquisadores selecionados:</label>
-                <textarea class="form-control" id="txtpesquisadores" rows="2" ></textarea>
+                <textarea class="form-control" id="txtpesquisadores" name="txtpesquisadores" rows="2" ></textarea>
             </div>
             <div class="col-sm-4">
                 <label for="imagem">Foto da planta:</label>
