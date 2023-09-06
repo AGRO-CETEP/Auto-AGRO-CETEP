@@ -153,10 +153,10 @@ $date = strtotime($input);
             $reino = addslashes($_POST['reino']);
             $filo = addslashes($_POST['filo']);
             $classe = addslashes($_POST['classe']);
-            $reino = addslashes($_POST['reino']);
-            $reino = addslashes($_POST['reino']);
-            $reino = addslashes($_POST['reino']);
-            $reino = addslashes($_POST['reino']);
+            $ordem = addslashes($_POST['ordem']);
+            $familia = addslashes($_POST['familia']);
+            $genero = addslashes($_POST['genero']);
+            $especie = addslashes($_POST['especie']);
           }
           else {
             echo '<h1><Preencha os campos obrigatórios!/h1>'
