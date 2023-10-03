@@ -12,4 +12,3 @@
 ## Sistemas FTP usados...
 > https://www.net2ftp.com/ <br>
 > https://www.filestash.app/pt/cliente-ftp-online.html
-> https://crm-body.kesug.com/
