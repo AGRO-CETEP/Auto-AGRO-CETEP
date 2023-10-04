@@ -184,10 +184,10 @@ $date = strtotime($input);
                 <label class="form-label">Cidade *</label>
                 <input type="text" class="form-control" id="cidade" name="cidade" required>
               </div>
-            <div class="col-sm-4">
+            <!--<div class="col-sm-4">
                 <label class="form-label">Link da imagem (opcional)</label>
                 <input type="text" class="form-control" id="img" name="img">
-              </div>
+              </div>-->
             
             <div class="col-sm-4">
                 <label class="form-label">Data da coleta</label>
