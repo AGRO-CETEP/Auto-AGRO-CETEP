@@ -170,15 +170,15 @@ $date = strtotime($input);
               </div>
             <div class="col-sm-4">
                 <label class="form-label">Gênero</label>
-                <input type="text" class="form-control" id="genero" name="genero">
+                <input type="text" class="form-control" id="genero" name="genero" placeholder="ex: Homo">
               </div>
             <div class="col-sm-4">
                 <label class="form-label">Espécie * (sem o gênero)</label>
-                <input type="text" class="form-control" id="especie" name="especie" required>
+                <input type="text" class="form-control" id="especie" name="especie" placeholder="ex: sapiens" required>
               </div>
             <div class="col-sm-4">
-                <label class="form-label">Nome popular *</label>
-                <input type="text" class="form-control" id="nomePopular" name="nomePopular" required>
+                <label class="form-label">Nome popular</label>
+                <input type="text" class="form-control" id="nomePopular" name="nomePopular">
               </div>
             <div class="col-sm-4">
                 <label class="form-label">Cidade *</label>
@@ -193,12 +193,12 @@ $date = strtotime($input);
                 <label class="form-label">Data da coleta</label>
                 <input type="date" class="form-control" id="data" name="data">
               </div>
-            <div class="col-sm-4">
+            <div class="col-sm-8">
               <label class="form-label">Descrição da espécie</label>
               <textarea class="form-control" id="txtdescricao" rows="5" ></textarea>
             </div>
             <div class="col-sm-4">
-               <label class="form-label">Pesquisadores que participaram: </label>
+               <label class="form-label">Pesquisadores envolvidos: (clique para selecionar) </label>
               <select class="form-select" id="pesquisador" name="pesquisador" multiple required style="width: 100%">
               <?php
               $AllUsers = mysqli_query($cls->GetLinkMySQLI(), "SELECT * FROM USERS");
@@ -215,7 +215,7 @@ $date = strtotime($input);
             
             <div class="col-sm-4">                            
               <label class="form-label">Pesquisadores selecionados:</label>
-                <textarea class="form-control" id="txtpesquisadores" rows="2" ></textarea>
+                <textarea class="form-control" id="txtpesquisadores" rows="5" ></textarea>
             </div>
             <div class="col-sm-4">
                 <label for="imagem">Foto da planta:</label>
