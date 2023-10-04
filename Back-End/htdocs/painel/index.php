@@ -222,7 +222,7 @@ $date = strtotime($input);
                 <input type="file" name="imagem" id="imagemInput">
             </div>
             <div class="col-sm-4">
-              <a href ="#" target="_blank" id="imagemLink"><img id="imagemPreview" src="#" alt="Prévia da Imagem" style="display: none; max-width: 200px; max-height: 200px; margin-top: 10px;"></a>
+              <a href ="#" target="_blank" id="imagemLink"><img id="imagemPreview" src="#" alt="Prévia da Imagem" style="display: none; max-width: 200px; max-height: 200px; margin-top: 10px; margin-inline: auto"></a>
             </div>
             
             <script>
