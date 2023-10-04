@@ -147,35 +147,6 @@ $date = strtotime($input);
             Catalogar uma espécie
           </h2>
           <hr style="border: 0; border-top: 3px solid black;">
-
-          <?php
-          if (isset($_POST['reino']) && isset($_POST['especie'])) {
-            $reino = addslashes($_POST['reino']);
-            $filo = addslashes($_POST['filo']);
-            $classe = addslashes($_POST['classe']);
-            $ordem = addslashes($_POST['ordem']);
-            $familia = addslashes($_POST['familia']);
-            $genero = addslashes($_POST['genero']);
-            $especie = addslashes($_POST['especie']);
-            $link = addslashes($_POST['img']);
-            //$pesquisadores = addslashes($_POST['txtpesquisadores']);
-
-            //$sql_code = 'INSERT INTO';
-
-
-            $comment = base64_encode($comment);
-            
-            $sql_code = "INSERT INTO `COMENTARIOS`(`ID_COMMENT`, `CONTENT_COMMENT`, `ID_USER`, `DATA_COMMENT`, `HORA_COMMENT`) VALUES ('', '$comment', '".$_SESSION['ID_USER']."', '$data', '$hora')";
-            $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: ".$mysqli->error);
-            
-
-          }
-          else {
-            echo '<h1><Preencha os campos obrigatórios!/h1>'
-          }
-          
-          ?>
-          
           <form method="POST" action="" class="row">           
             <div class="col-sm-4">
               <label class="form-label">Reino *</label>
@@ -205,7 +176,14 @@ $date = strtotime($input);
                 <label class="form-label">Espécie * (sem o gênero)</label>
                 <input type="text" class="form-control" id="especie" name="especie" required>
               </div>
-            
+            <div class="col-sm-4">
+                <label class="form-label">Nome popular *</label>
+                <input type="text" class="form-control" id="nomePopular" name="nomePopular" required>
+              </div>
+            <div class="col-sm-4">
+                <label class="form-label">Cidade *</label>
+                <input type="text" class="form-control" id="cidade" name="cidade" required>
+              </div>
             <div class="col-sm-4">
                 <label class="form-label">Link da imagem (opcional)</label>
                 <input type="text" class="form-control" id="img" name="img">
@@ -225,17 +203,19 @@ $date = strtotime($input);
               <?php
               $AllUsers = mysqli_query($cls->GetLinkMySQLI(), "SELECT * FROM USERS");
               while ($rows = mysqli_fetch_array($AllUsers)) {
-                echo '<option value="'.$rows[0].'">'.$rows[1].'</option>';              
-              }
-              ?>                                
+                echo '<option value="'.$rows[0].'">'.$rows[1].'</option>';
                 
+              }
+              ?>
+                                
+                <!-- Adicione mais opções conforme necessário -->
               </select>
             </div>
             
             
             <div class="col-sm-4">                            
               <label class="form-label">Pesquisadores selecionados:</label>
-                <textarea class="form-control" id="txtpesquisadores" name="txtpesquisadores" rows="2" ></textarea>
+                <textarea class="form-control" id="txtpesquisadores" rows="2" ></textarea>
             </div>
             <div class="col-sm-4">
                 <label for="imagem">Foto da planta:</label>
@@ -314,11 +294,16 @@ $date = strtotime($input);
             <div class="col-sm-5">
               <img class="img-responsive" src="https://agrocetep.files.wordpress.com/2022/08/whatsapp-image-2022-08-15-at-08.00.43.jpeg" alt="" style="
                                                                                                                                                       max-width: 300px;
-                                                                                                                                                      margin-inline: auto; ">  
+                                                                                                                                                      margin-inline: auto;
+                                                                                                                                                      ">  
             </div>
             <div class="col-sm-7" style="
                                          ">
-              <img class="img-responsive" src="https://agrocetep.files.wordpress.com/2022/07/cruz-news.jpg" alt="" style="max-width: 100%; margin-inline: auto; margin-block: auto;">  
+              <img class="img-responsive" src="https://agrocetep.files.wordpress.com/2022/07/cruz-news.jpg" alt="" style="
+                                                                                                                          max-width: 100%;
+                                                                                                                          margin-inline: auto;
+                                                                                                                          margin-block: auto;
+                                                                                                                          ">  
             </div>
           </div>
 
