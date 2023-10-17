@@ -1,7 +1,6 @@
 <?php
-require '../php/class.php';
+require 'php/class.php';
 $cls = new database;
-include('protect.php');
 $link = $cls->GetLinkMySQLI();
 ?>
 
