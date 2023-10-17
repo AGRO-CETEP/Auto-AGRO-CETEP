@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             //echo "Upload bem-sucedido! O arquivo foi salvo em: " . $caminho_completo;
             
             // Mandando os dados para o banco de dados
-            $query = mysqli_query($link, "INSERT INTO `SPECIE` (`ID_SPECIE`, `REINO_S`, `FILO_S`, `CLASSE_S`, `ORDEM_S`, `FAMILY_S`, `GENERO_S`, `SPECIE`, `NOME_POPULAR`, `CIDADE_SPECIE`, `PHOTO_1`, `COMMENT`, `DATA_COLETA`, `COLETORES`) VALUES (NULL, '". $_POST['reino']."', '".$_POST['filo']."', '". $_POST['classe']."', '".$_POST['ordem']."', '".$_POST['familia']."', '".$_POST['genero']."', '".$_POST['especie']."', '".$_POST['nomePopular']."', '".$_POST['cidade']."', '".$caminho_completo."', '".$_POST['txtdescricao']."', '".$_POST['data']."', '".$_POST['txtPesquisadores']."')");
+            $query = mysqli_query($link, "INSERT INTO `SPECIE` (`ID_SPECIE`, `REINO_S`, `FILO_S`, `CLASSE_S`, `ORDEM_S`, `FAMILY_S`, `GENERO_S`, `SPECIE`, `NOME_POPULAR`, `CIDADE_SPECIE`, `PHOTO_1`, `COMMENT`, `DATA_COLETA`, `COLETORES`) VALUES (NULL, '". $_POST['reino']."', '".$_POST['filo']."', '". $_POST['classe']."', '".$_POST['ordem']."', '".$_POST['familia']."', '".$_POST['genero']."', '".$_POST['especie']."', '".$_POST['nomePopular']."', '".$_POST['cidade']."', '".$nome_arquivo."', '".$_POST['txtdescricao']."', '".$_POST['data']."', '".$_POST['txtPesquisadores']."')");
             
             header('Location: /painel');
         } catch (Exception $e) {
