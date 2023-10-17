@@ -1,3 +1,10 @@
+<?php
+require '../php/class.php';
+$cls = new database;
+include('protect.php');
+$link = $cls->GetLinkMySQLI();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -25,13 +32,14 @@
           </div>
           <div class="col-md-9 text-center">
             <div style="margin-block: 10%;">
-              <h2>AGROCETEP</h2>
-              <h4>Catálogo online</h4>                      
+              <a href="https://agrocetep.wordpress.com/" style="color: white"><h2>AGROCETEP</h2>
+              <h4>Catálogo online</h4></a>                      
             </div>                    
           </div> 
         </div>                             
       </header>
       <ul class="nav nav-tabs">
+        <li class=""><a href="/painel/">Área do usuário <span class="glyphicon glyphicon-user"></span></a></li> 
         <li class="active"><a data-toggle="tab"href="#all">Todas as espécies <span class="glyphicon glyphicon-leaf"></span></a></li>
         <!--        <li class="active"><a href="#home">Perfil <span class="glyphicon glyphicon-user"></span></a></li>        -->
         <li><a data-toggle="tab" href="#search">Pesquisar <span class="glyphicon glyphicon-search"></span></a></li>
