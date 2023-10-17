@@ -198,7 +198,7 @@ $date = strtotime($input);
               </div>
             <div class="col-sm-8">
               <label class="form-label">Descrição da espécie</label>
-              <textarea class="form-control" id="txtdescricao" rows="5" ></textarea>
+              <textarea class="form-control" id="txtdescricao" name="txtdescricao" rows="5" ></textarea>
             </div>
             <div class="col-sm-4">
                <label class="form-label">Pesquisadores envolvidos: (clique para selecionar) </label>
@@ -218,7 +218,7 @@ $date = strtotime($input);
             
             <div class="col-sm-4">                            
               <label class="form-label">Pesquisadores selecionados:</label>
-                <textarea class="form-control" id="txtpesquisadores" rows="5" ></textarea>
+                <textarea class="form-control" id="txtpesquisadores" name="txtPesquisadores" rows="5" ></textarea>
             </div>
             <div class="col-sm-4">
                 <label for="imagem">Foto da planta:</label>
