@@ -43,6 +43,27 @@ $date = strtotime($input);
           </div> 
         </div>                             
       </header>
+      
+      <div id="ModalPhoto" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Ops...</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>Opção indisponível no momento!</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+                  </div>
+                </div>
+
+              </div>
+            </div> 
+      
       <ul class="nav nav-tabs">
         <li><a href="/">Catálogos <span class="glyphicon glyphicon-leaf"></span></a></li>
         <li class="active"><a data-toggle="tab" href="#home">Perfil <span class="glyphicon glyphicon-user"></span></a></li>
@@ -75,25 +96,7 @@ $date = strtotime($input);
               <h4><span class="glyphicon glyphicon-new-window"></span> Currículo Lattes: <br><a href="<?php echo($User[4]);?>" target="_blank"><?php echo($User[4]);?></a></h4>
               <h4><span class="glyphicon glyphicon-calendar"></span> Conta criada em: <?php echo date('d/M/Y', $date);?></h4>              
             </div>
-            <div id="ModalPhoto" class="modal fade" role="dialog">
-              <div class="modal-dialog">
-
-                <!-- Modal content-->
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Ops...</h4>
-                  </div>
-                  <div class="modal-body">
-                    <p>Opção indisponível no momento!</p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
-                  </div>
-                </div>
-
-              </div>
-            </div>            
+                       
           </div>
           <hr style="border: 0; border-top: 3px solid black;">
           <div class="row"></div>
@@ -134,7 +137,7 @@ $date = strtotime($input);
                                 ">Olá, Pesquisador(a),<br><br>
                         É um prazer para nós ter a você como um colaborador de conteúdo em nosso sistema de informação!<br>
                         Atualmente nosso sistema de informação está em desenvolvimento. Estamos trabalhando para concluí-lo o mais breve possível.<br>
-                        <br> Caso tenha dificuldade com algo na nossa plataforma entre em contato...</p>
+                        <br> Caso tenha dificuldade com algo na nossa plataforma entre em contato com o e-mail <a href="mailto:thiagosousa81@gmail.com">thiagosousa81@gmail.com</a></p>
                     </li>                                                      
                   </ul>                        
                 </div>
@@ -147,14 +150,14 @@ $date = strtotime($input);
             Catalogar uma espécie
           </h2>
           <hr style="border: 0; border-top: 3px solid black;">
-          <form method="POST" action="" class="row">           
+          <form method="POST" action="upload.php" class="row" enctype="multipart/form-data">           
             <div class="col-sm-4">
               <label class="form-label">Reino *</label>
               <input type="text" class="form-control" id="reino" name="reino" required>
             </div>
             <div class="col-sm-4">
               <label class="form-label">Filo</label>
-              <input type="email" class="form-control" id="filo" name="filo">
+              <input type="text" class="form-control" id="filo" name="filo">
             </div>
             <div class="col-sm-4">
               <label class="form-label">Classe</label>
