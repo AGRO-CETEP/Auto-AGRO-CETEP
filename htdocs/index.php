@@ -2,6 +2,7 @@
 require 'php/class.php';
 $cls = new database;
 $link = $cls->GetLinkMySQLI();
+// concluir usando https://github.com/ThiagoSousa81/ShopDBV/blob/db81bdfaed0b22084102644ac60bd67d6d81240c/htdocs/system/index.php#L151C13-L155C14
 ?>
 
 <!DOCTYPE html>
