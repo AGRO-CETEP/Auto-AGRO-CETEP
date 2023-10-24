@@ -59,9 +59,9 @@ while($rows = mysqli_fetch_array($query)) {
      <hr style="margin-block-start: 10px; border: 0; border-top: 3px solid black;">
        
     <div class="row" style="display: flex;">
-        <div class="col-sm-4" style="overflow: hidden">                         
+        <div class="col-sm-4" style="overflow: hidden; padding-inline: auto; text-align: center">                         
             <a data-toggle="modal" href="#ModalPhoto<?= $rows[0] ?>">
-                <img class="img-rounded img-responsive" src="https://agrocetep.epizy.com/images/plants/<?= base64_decode($rows[10]) ?>" alt="Foto da planta" style="max-height: 250px;max-width: 250px;min-width: 250px;min-height: 250px;">
+                <img class="img-rounded img-responsive" src="https://agrocetep.epizy.com/images/plants/<?= base64_decode($rows[10]) ?>" alt="Foto da planta" style="max-height: 200px;max-width: 200px;min-width: 200px;min-height: 200px; margin-inline: auto">
             </a>
             <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#ModalPhoto<?= $rows[0] ?>" style="width: 75%; margin-inline: auto">Ver foto <span class="glyphicon glyphicon-picture"></span></button> 
         </div>
