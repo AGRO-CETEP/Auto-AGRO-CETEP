@@ -2,7 +2,6 @@
 require 'php/class.php';
 $cls = new database;
 $link = $cls->GetLinkMySQLI();
-// concluir usando https://github.com/ThiagoSousa81/ShopDBV/blob/db81bdfaed0b22084102644ac60bd67d6d81240c/htdocs/system/index.php#L151C13-L155C14
 ?>
 
 <!DOCTYPE html>
@@ -49,182 +48,113 @@ $link = $cls->GetLinkMySQLI();
       <div class="tab-content jumbotron">
 
         <div id="all" class="tab-pane fade in active"> 
-          <h2>Todo o catálogo (estático)</h2>
-          <hr style="margin-block-start: 10px; border: 0; border-top: 3px solid black;">
-          <div class="row" style="
-    display: flex;
-">
-            <div class="col-sm-2" style="overflow: hidden">                         
-              <a data-toggle="modal" href="#ModalPhoto1"><img class="img-rounded img-responsive" src="https://agrocetep.files.wordpress.com/2022/10/amaranthus-spinosus-foto-2.jpg?w=1024" alt="Foto do perfil" style="max-height: 250px; max-width: 250px;"></a>
-              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#ModalPhoto1" style="width: 100%">Ver foto <span class="glyphicon glyphicon-picture"></span></button> 
-            </div>
-             
-            <div id="ModalPhoto1" class="modal fade" role="dialog" style="display: none;">
-              <div class="modal-dialog">
-
-                <!-- Modal content-->
-                <div class="modal-content" style="size: 90%">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Espécie: <i>Amaranthus spinosus</i></h4>
-                  </div>
-                  <div class="modal-body" style="overflow: auto">
-                    <img class="img-rounded img-responsive" src="https://agrocetep.files.wordpress.com/2022/10/amaranthus-spinosus-foto-2.jpg?w=1024">
-                    <hr style="margin-block-start: 10px; border: 0; border-top: 3px solid black;">
-                    <h3>
-                       Taxonomia
-                    </h3>
-                    <table class="table table-condensed table-bordered">                      
-                      <tbody>  
-                        <tr>
-                          <td>Reino</td>
-                          <td><i>Plantae</i></td>
-                        </tr>
-                        <tr>
-                          <td>Filo</td>
-                          <td><i>Angiospérmicas</i></td>
-                        </tr>
-                        <tr>
-                          <td>Classe</td>
-                          <td><i>Eudicotiledóneas</i></td>
-                        </tr>
-                        <tr>
-                          <td>Ordem</td>
-                          <td><i>Caryophyllales</i></td>
-                        </tr>
-                        <tr>
-                          <td>Família</td>
-                          <td><i>Amaranthaceae</i></td>
-                        </tr>
-                        <tr>
-                          <td>Gênero</td>
-                          <td><i>Amaranthus</i></td>
-                        </tr>
-                        <tr>
-                          <td>Espécie</td>
-                          <td><i>Amaranthus spinosus</i></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <hr style="margin-block-start: 10px; border: 0; border-top: 3px solid black;">
-                    <h3>
-                      Observações
-                    </h3>
-                    <p>
-                      Costuma ser uma erva ou subarbusto ereto, de 20 a 80 cm de altura, espinhoso. O seu principal bioma é o serrado. Esta planta raramente frequenta lugares úmidos. Ela renova muito rápido quando cortada, em relação a algumas plantas.
-
-É uma planta relativamente tóxica para o gado!
-                    </p>
-                  </div>
-                  <div class="modal-footer">
-                    <a href="https://agrocetep.files.wordpress.com/2022/10/amaranthus-spinosus-foto-2.jpg?w=1024" target="_blank"><button type="button" class="btn btn-default">Visualizar em nova aba <span class="glyphicon glyphicon-picture"></span></button></a>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-           
-            
-            
-            <div class="col-sm-10" style="
-    overflow: auto;
-">            
-              <h4><span class="glyphicon glyphicon-leaf"></span> Espécie: <i>Amaranthus spinosus</i></h4>
-              <h4><span class="glyphicon glyphicon-info-sign"></span> Sobre: Erva daninha tóxica para o gado!</h4>
-              <h4><span class="glyphicon glyphicon-new-window"></span> <a data-toggle="modal"  href="#ModalPhoto1">Visualizar</a></h4>
-             <!-- <h4><span class="glyphicon glyphicon-calendar"></span> Catalogada em: 31/Dec/1969</h4> -->             
-            </div>
-          </div>
+          <h2>Todo o catálogo (DINÂMICO)</h2>
           
-          <hr style="margin-block-start: 10px; border: 0; border-top: 3px solid black;">
+          <?php 
+$query = mysqli_query($link, "SELECT * FROM `SPECIE`");
+$cont = mysqli_num_rows($query);  
+
+while($rows = mysqli_fetch_array($query)) {
+    ?>
+     <hr style="margin-block-start: 10px; border: 0; border-top: 3px solid black;">
+       
+    <div class="row" style="display: flex;">
+        <div class="col-sm-2" style="overflow: hidden">                         
+            <a data-toggle="modal" href="#ModalPhoto<?= $rows[0] ?>">
+                <img class="img-rounded img-responsive" src="https://agrocetep.epizy.com/images/plants/<?= base64_decode($rows[10]) ?>" alt="Foto do perfil" style="max-height: 250px; max-width: 250px;">
+            </a>
+            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#ModalPhoto<?= $rows[0] ?>" style="width: 100%">Ver foto <span class="glyphicon glyphicon-picture"></span></button> 
+        </div>
+
+        <div id="ModalPhoto<?= $rows[0] ?>" class="modal fade" role="dialog" style="display: none;">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="size: 90%">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title">Espécie: <i><?= base64_decode($rows[6]) ." ". base64_decode($rows[7]) ?></i></h4>
+            </div>
+            <div class="modal-body" style="overflow: auto">
+                <img class="img-rounded img-responsive" src="https://agrocetep.epizy.com/images/plants/<?= base64_decode($rows[10]) ?>">
+                <hr style="margin-block-start: 10px; border: 0; border-top: 3px solid black;">
+                <h3>
+                    Taxonomia
+                </h3>
+                <table class="table table-condensed table-bordered">                      
+                    <tbody>  
+                        <tr>
+                            <td>Reino</td>
+                            <td><i><?= base64_decode($rows[1]) ?></i></td>
+                        </tr>
+                        <tr>
+                            <td>Filo</td>
+                            <td><i><?= base64_decode($rows[2]) ?></i></td>
+                        </tr>
+                        <tr>
+                            <td>Classe</td>
+                            <td><i><?= base64_decode($rows[3]) ?></i></td>
+                        </tr>
+                        <tr>
+                            <td>Ordem</td>
+                            <td><i><?= base64_decode($rows[4]) ?></i></td>
+                        </tr>
+                        <tr>
+                            <td>Família</td>
+                            <td><i><?= base64_decode($rows[5]) ?></i></td>
+                        </tr>
+                        <tr>
+                            <td>Gênero</td>
+                            <td><i><?= base64_decode($rows[6]) ?></i></td>
+                        </tr>
+                        <tr>
+                            <td>Espécie</td>
+                            <td><i><?= base64_decode($rows[7])?></i></td>
+                        </tr>
+                        <!-- Adicione mais linhas conforme necessário -->
+                    </tbody>
+                </table>
+                <hr style="margin-block-start: 10px; border: 0; border-top: 3px solid black;">
+                <h3>Nome popular: <?= base64_decode($rows[8])?></h3>
+                <hr style="margin-block-start: 10px; border: 0; border-top: 3px solid black;">
+                <h3>Cidade: <?= base64_decode($rows[9])?></h3>
+                <hr style="margin-block-start: 10px; border: 0; border-top: 3px solid black;">
+                <h3>Pesquisadores:</h3>
+                <p><?= base64_decode($rows[13])?></p>
+                <hr style="margin-block-start: 10px; border: 0; border-top: 3px solid black;">
+                
+                <h3>
+                    Observações
+                </h3>
+                <p>
+                    <?= base64_decode($rows[11]) ?>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <a href="https://agrocetep.epizy.com/images/plants/<?= base64_decode($rows[10]) ?>" target="_blank">
+                    <button type="button" class="btn btn-default">Visualizar em nova aba <span class="glyphicon glyphicon-picture"></span></button>
+                </a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+
+
+        </div>
+
+        <div class="col-sm-10" style="overflow: auto;">            
+            <h4><span class="glyphicon glyphicon-leaf"></span> Espécie: <i><?= base64_decode($rows[6]) ?> <?= base64_decode($rows[7]) ?></i></h4>
+            <h4><span class="glyphicon glyphicon-new-window"></span> <a data-toggle="modal"  href="#ModalPhoto<?= $rows[0] ?>">Visualizar</a></h4>
+            <h4><span class="glyphicon glyphicon-calendar"></span> Catalogada em: <?= $rows[12] ?></h4>              
+        </div>
+    </div>
+    <?php
+}
+?>
+
           
-          <div class="row" style="
-    display: flex;
-">
-            <div class="col-sm-2" style="overflow: hidden">                         
-              <a data-toggle="modal" href="#ModalPhoto2"><img class="img-rounded img-responsive" src="https://agrocetep.files.wordpress.com/2022/11/maxresdefault-3.jpg" alt="Foto do perfil" style="max-height: 250px; max-width: 250px;"></a>
-              <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#ModalPhoto2" style="width: 100%">Ver foto <span class="glyphicon glyphicon-picture"></span></button> 
-            </div>
-             
-            <div id="ModalPhoto2" class="modal fade" role="dialog" style="display: none;">
-              <div class="modal-dialog">
-
-                <!-- Modal content-->
-                <div class="modal-content" style="size: 90%">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Espécie: <i>Lantana camara</i></h4>
-                  </div>
-                  <div class="modal-body" style="overflow: auto">
-                    <img class="img-rounded img-responsive" src="https://agrocetep.files.wordpress.com/2022/11/maxresdefault-3.jpg">
-                    <hr style="margin-block-start: 10px; border: 0; border-top: 3px solid black;">
-                    <h3>
-                       Taxonomia
-                    </h3>
-                    <table class="table table-condensed table-bordered">                      
-                      <tbody>  
-                        <tr>
-                          <td>Reino</td>
-                          <td><i>Plantae</i></td>
-                        </tr>
-                        <tr>
-                          <td>Filo</td>
-                          <td><i>Magnoliophyta</i></td>
-                        </tr>
-                        <tr>
-                          <td>Classe</td>
-                          <td><i>Magnoliopsida</i></td>
-                        </tr>
-                        <tr>
-                          <td>Ordem</td>
-                          <td><i>Lamiales</i></td>
-                        </tr>
-                        <tr>
-                          <td>Família</td>
-                          <td><i>Verbenaceae</i></td>
-                        </tr>
-                        <tr>
-                          <td>Gênero</td>
-                          <td><i>Lantana</i></td>
-                        </tr>
-                        <tr>
-                          <td>Espécie</td>
-                          <td><i>Lantana camara</i></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <hr style="margin-block-start: 10px; border: 0; border-top: 3px solid black;">
-                    <h3>
-                      Observações
-                    </h3>
-                    <p>
-                      Costuma ser um arbusto ornamental com flores pequenas em coloração amarela-alaranjada.<br>Produz um pequeno fruto não comestível que fica com uma cor escura quando maduro.
-                    </p>
-                  </div>
-                  <div class="modal-footer">
-                    <a href="https://agrocetep.files.wordpress.com/2022/11/maxresdefault-3.jpg" target="_blank"><button type="button" class="btn btn-default">Visualizar em nova aba <span class="glyphicon glyphicon-picture"></span></button></a>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-           
-            
-            
-            <div class="col-sm-10" style="
-    overflow: auto;
-">            
-              <h4><span class="glyphicon glyphicon-leaf"></span> Espécie: <i>Lantana camara</i></h4>
-              <h4><span class="glyphicon glyphicon-info-sign"></span> Sobre: Flor conhecida como Ipê amarelinho</h4>
-              <h4><span class="glyphicon glyphicon-new-window"></span> <a data-toggle="modal"  href="#ModalPhoto2">Visualizar</a></h4>
-             <!-- <h4><span class="glyphicon glyphicon-calendar"></span> Catalogada em: 31/Dec/1969</h4> -->             
-            </div>
-          </div>
         </div>
       
-        <hr style="margin-block-start: 10px; border: 0; border-top: 3px solid black;">
         
         <div id="search" class="tab-pane fade">
           <h2 class="text-center">
