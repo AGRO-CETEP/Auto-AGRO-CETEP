@@ -94,7 +94,7 @@ $date = strtotime($input);
               <h4><span class="glyphicon glyphicon-user"></span> Nome: <?php echo($User[1]);?></h4>
               <h4><span class="glyphicon glyphicon-envelope"></span> E-mail: <br><a href="mailto:<?php echo($User[2]);?>"><?php echo($User[2]);?></a></h4>
               <h4><span class="glyphicon glyphicon-new-window"></span> Currículo Lattes: <br><a href="<?php echo($User[4]);?>" target="_blank"><?php echo($User[4]);?></a></h4>
-              <h4><span class="glyphicon glyphicon-calendar"></span> Conta criada em: <?php echo date('d/m/Y', $date);?></h4>              
+              <h4><span class="glyphicon glyphicon-calendar"></span> Conta criada em: <?php echo date('d/M/Y', $date);?></h4>              
             </div>
                        
           </div>
@@ -290,7 +290,7 @@ $date = strtotime($input);
         <div id="info" class="tab-pane fade">
           <h2>Sobre a equipe de pesquisadores AGROCETEP</h2>
           <hr style="margin-block-start: 10px; border: 0; border-top: 3px solid black;">
-          <p style="text-align: justify"><strong>AGROCETEP</strong> é o nome que foi dado ao projeto de catalogação online do levantamento florístico do CETEP Alberto Torres. <br></p>
+          <p style="text-align: justify"><strong>AGROCETEP</strong> é o nome que foi dado ao projeto de catalogagem online do levantamento florístico do CETEP Alberto Torres. <br></p>
           <div class="row">
 
 
