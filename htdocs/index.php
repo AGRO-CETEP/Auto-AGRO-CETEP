@@ -15,6 +15,7 @@ $link = $cls->GetLinkMySQLI();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="icon" href="/images/Logo AgroCETEP.png">
+    <link rel="stylesheet" href="/style.css">
   </head>
   <body style="margin: 0px;padding: 0px;background-image: radial-gradient(white, #fcb900);">
 
@@ -48,7 +49,7 @@ $link = $cls->GetLinkMySQLI();
       <div class="tab-content jumbotron">
 
         <div id="all" class="tab-pane fade in active"> 
-          <h2>Todo o catálogo (DINÂMICO)</h2>
+          <h2>Todo o catálogo</h2>
           
           <?php 
 $query = mysqli_query($link, "SELECT * FROM `SPECIE`");
@@ -59,7 +60,7 @@ while($rows = mysqli_fetch_array($query)) {
      <hr style="margin-block-start: 10px; border: 0; border-top: 3px solid black;">
        
     <div class="row" style="display: flex;">
-        <div class="col-sm-2" style="overflow: hidden; padding-inline: auto; text-align: center">                         
+        <div class="col-sm-2 plant" style="overflow: hidden; padding-inline: auto; text-align: center">                         
             <div style="margin-inline: auto; width: 80%;">
                 <a data-toggle="modal" href="#ModalPhoto<?= $rows[0] ?>">
                     <img class="img-rounded img-responsive" src="https://agrocetep.epizy.com/images/plants/<?= base64_decode($rows[10]) ?>" alt="Foto da planta" style="/*max-height: 200px;max-width: 200px;min-width: 200px;min-height: 200px; */ width: 100%; margin-inline: auto">
