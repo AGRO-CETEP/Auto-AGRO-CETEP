@@ -35,66 +35,62 @@
         <div class="text-white container-fluid">
 
           <?php
+if (isset($_POST['nome']) || isset($_POST['lattes']) || isset($_POST['email']) || isset($_POST['pswd']) || isset($_POST['cpswd'])) {
+    $nome = addslashes($_POST['nome']);
+    $lattes = addslashes($_POST['lattes']);
+    $email = addslashes($_POST['email']);
+    $password = addslashes($_POST['pswd']);
+    $cpassword = addslashes($_POST['cpswd']);
+    
+      $timezone = new DateTimeZone('America/Sao_Paulo');                                         
+      $now = new DateTime('now', $timezone);
+      $data = $now->format('Y/m/d');
+      $hora = $now->format('H:i');
 
-          if(isset($_POST['nome']) || isset($_POST['lattes']) || isset($_POST['email']) || isset($_POST['pswd']) || isset($_POST['cpswd'])) {
-
-            $nome = addslashes($_POST['nome']);                                    
-            $lattes = addslashes($_POST['lattes']);
-            $email = addslashes($_POST['email']);
-            $password = addslashes($_POST['pswd']);
-            $cpassword = addslashes($_POST['cpswd']);
-
-            if (!empty($nome) && !empty($email) && !empty($password) && !empty($cpassword)) {
-              if ($password == $cpassword) {
-                if(filter_var($email, FILTER_VALIDATE_EMAIL))
-                {//a partir daqui cadastramos no banco de dados
-                  for ($i=0; $i < 255; $i++) { 
+    if (!empty($nome) && !empty($email) && !empty($password) && !empty($cpassword)) {
+        if ($password == $cpassword) {
+            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                // Hash da senha usando password_hash
+                 for ($i=0; $i < 255; $i++) { 
                     $password = sha1($password);
                   }
 
-                  $timezone = new DateTimeZone('America/Sao_Paulo');                                         
-                  $now = new DateTime('now', $timezone);
-                  $data = $now->format('Y/m/d');
-                  $hora = $now->format('H:i');
+                // Criação da conexão
+                $usuario = 'epiz_33347322';
+                $senha = '0C5drBLQ48P';
+                $database = 'epiz_33347322_DATABASE';
+                $host = 'sql205.epizy.com';
+                $mysqli = new mysqli($host, $usuario, $senha, $database);
 
-                  $usuario = 'epiz_33347322';
-                  $senha = '0C5drBLQ48P';
-                  $database = 'epiz_33347322_DATABASE';
-                  $host = 'sql205.epizy.com';
-                  $conexao = mysql_connect($host, $usuario, $senha) 
-                    or die("Erro ao conectar ao banco de dados");
-                  $db = mysql_select_db($database)
-                    or die("Erro ao selecionar banco de dados");
-                  /*$mysqli = new $mysqli($host, $usuario, $senha, $database);
-
-                  if($mysqli->error) {
-                    die("Falha ao conectar ao banco de dados: " . $mysqli->error);
-                  }*/
-
-                  mysql_query('INSERT INTO USERS (`ID_USER`, `NOME_USER`, `EMAIL_USER`, `HASH_USER`, `LATTES_USER`, `DATA_USER`, `HORA_USER`) VALUES ("", "'.$nome.'", "'.$email.'", "'.$password.'", "'.$lattes.'", "'.$data.'", "'.$hora.'")');
-                  //$sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: ".$mysqli->error);
-
-                  echo('<div class="alert alert-success" style="margin-top: 5px"><strong>Usuário cadastrado com sucesso!</strong></div>');
-                  
-                  sleep(3);
-                  header('Location: /log-in');                 
-                  
+                if ($mysqli->connect_error) {
+                    die("Falha ao conectar ao banco de dados: " . $mysqli->connect_error);
                 }
-                else{
-                  echo('<div class="alert alert-danger" style="margin-top: 5px"><strong>Endereço de e-mail inválido!</strong></div>');
+
+                // Query SQL para inserir dados
+                $query = "INSERT INTO USERS (`ID_USER`, `NOME_USER`, `EMAIL_USER`, `HASH_USER`, `LATTES_USER`, `DATA_USER`, `HORA_USER`) 
+                          VALUES ('', '$nome', '$email', '$password', '$lattes', '$data', '$hora')";
+
+                // Execução da query
+                if ($mysqli->query($query) === TRUE) {
+                    echo '<div class="alert alert-success" style="margin-top: 5px"><strong>Usuário cadastrado com sucesso!</strong></div>';
+                    sleep(3);
+                    header('Location: /log-in');
+                } else {
+                    echo '<div class="alert alert-danger" style="margin-top: 5px"><strong>Falha ao cadastrar usuário: ' . $mysqli->error . '</strong></div>';
                 }
-              }
-              else {
-                echo('<div class="alert alert-danger" style="margin-top: 5px"><strong>As senhas não conferem!</strong></div>');
-              }
+                $mysqli->close();
+            } else {
+                echo '<div class="alert alert-danger" style="margin-top: 5px"><strong>Endereço de e-mail inválido!</strong></div>';
             }
-            else {
-              echo('<div class="alert alert-danger" style="margin-top: 5px"><strong>Preencha todos os campos!</strong></div>');
-            }
+        } else {
+            echo '<div class="alert alert-danger" style="margin-top: 5px"><strong>As senhas não conferem!</strong></div>';
+        }
+    } else {
+        echo '<div class="alert alert-danger" style="margin-top: 5px"><strong>Preencha todos os campos!</strong></div>';
+    }
+}
+?>
 
-
-
-          } ?>
           
           
           <form action="" method="post">
