@@ -42,6 +42,7 @@ $link = $cls->GetLinkMySQLI();
         <li class=""><a href="/painel/">Área do usuário <span class="glyphicon glyphicon-user"></span></a></li> 
         <li class="active"><a data-toggle="tab"href="#all">Todas as espécies <span class="glyphicon glyphicon-leaf"></span></a></li>
         <!--        <li class="active"><a href="#home">Perfil <span class="glyphicon glyphicon-user"></span></a></li>        -->
+        <li class=""><a data-toggle="" href="/medicinais.php" aria-expanded="false">Espécies medicinais <span class="glyphicon glyphicon-plus"></span></a></li>
         <li><a data-toggle="tab" href="#search">Pesquisar <span class="glyphicon glyphicon-search"></span></a></li>
         <!--<li><a href="/painel/logout.php">Sair <span class="glyphicon glyphicon-log-out"></span></a></li>-->
       </ul>
@@ -52,7 +53,7 @@ $link = $cls->GetLinkMySQLI();
           <h2>Todo o catálogo</h2>
           
           <?php 
-$query = mysqli_query($link, "SELECT * FROM `SPECIE`");
+$query = mysqli_query($link, "SELECT * FROM `SPECIE` WHERE `MEDICINAL_SPECIE`='off'");
 $cont = mysqli_num_rows($query);  
 
 while($rows = mysqli_fetch_array($query)) {
