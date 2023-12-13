@@ -37,7 +37,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             //echo "Upload bem-sucedido! O arquivo foi salvo em: " . $caminho_completo;
             
             // Mandando os dados para o banco de dados
-            $query = mysqli_query($link, "INSERT INTO `SPECIE` (`ID_SPECIE`, `REINO_S`, `FILO_S`, `CLASSE_S`, `ORDEM_S`, `FAMILY_S`, `GENERO_S`, `SPECIE`, `NOME_POPULAR`, `CIDADE_SPECIE`, `PHOTO_1`, `COMMENT`, `DATA_COLETA`, `COLETORES`) VALUES (NULL, '".base64_encode($_POST['reino'])."', '".base64_encode($_POST['filo'])."', '". base64_encode($_POST['classe'])."', '".base64_encode($_POST['ordem'])."', '".base64_encode($_POST['familia'])."', '".base64_encode($_POST['genero'])."', '".base64_encode($_POST['especie'])."', '".base64_encode($_POST['nomePopular'])."', '".base64_encode($_POST['cidade'])."', '".base64_encode($nome_arquivo)."', '".base64_encode($_POST['txtdescricao'])."', '".$_POST['data']."', '".base64_encode($_POST['txtPesquisadores'])."')");
+            
+            
+            $query = mysqli_query($link, "INSERT INTO `SPECIE` (`ID_SPECIE`, `REINO_S`, `FILO_S`, `CLASSE_S`, `ORDEM_S`, `FAMILY_S`, `GENERO_S`, `SPECIE`, `NOME_POPULAR`, `CIDADE_SPECIE`, `PHOTO_1`, `COMMENT`, `DATA_COLETA`, `COLETORES`, `MEDICINAL_SPECIE`) VALUES (NULL, '".base64_encode($_POST['reino'])."', '".base64_encode($_POST['filo'])."', '". base64_encode($_POST['classe'])."', '".base64_encode($_POST['ordem'])."', '".base64_encode($_POST['familia'])."', '".base64_encode($_POST['genero'])."', '".base64_encode($_POST['especie'])."', '".base64_encode($_POST['nomePopular'])."', '".base64_encode($_POST['cidade'])."', '".base64_encode($nome_arquivo)."', '".base64_encode($_POST['txtdescricao'])."', '".$_POST['data']."', '".base64_encode($_POST['txtPesquisadores'])."', '".$_POST['medicinal']."')");
             
             header('Location: /painel');
         } catch (Exception $e) {
