@@ -195,6 +195,9 @@ $date = strtotime($input);
             <div class="col-sm-4">
                 <label class="form-label">Data da coleta</label>
                 <input type="date" class="form-control" id="data" name="data">
+                
+                <label class="form-label">É uma espécie do trabalho de mestrado de Plantas Medicinais? </label>
+                <input type="checkbox" class="" id="medicinal" name="medicinal">
               </div>
             <div class="col-sm-8">
               <label class="form-label">Descrição da espécie</label>
